@@ -8,7 +8,10 @@ const app = express();
 // Allow requests from the React frontend
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://real-time-classroom.vercel.app",
+    ],
   })
 );
 
@@ -18,7 +21,10 @@ const server = http.createServer(app);
 // Attach Socket.io to the HTTP server
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://real-time-classroom.vercel.app",
+    ],
   },
 });
 
